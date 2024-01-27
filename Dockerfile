@@ -1,3 +1,3 @@
 
 FROM nginx
-COPY  /usr/share/nginx/html
+COPY /target/Websitesiki.war /usr/share/nginx/html
