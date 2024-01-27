@@ -15,6 +15,11 @@ tools{
                sh 'mvn clean install'
             }
         }
+         stage('Deploy to server') {
+            steps {
+              deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.7.253.112:8081/')], contextPath: null, war: '**/*.war'
+            }
+        }
     }
 }
 
