@@ -22,7 +22,9 @@ tools{
         }
          stage('Docker image build') {
             steps {
-             sh ''
+             sh 'docker build -t myimage:1 .'
+                sh 'ls -l'
+                sh 'pwd'
             }
         }
         
