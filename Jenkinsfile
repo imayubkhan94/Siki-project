@@ -17,7 +17,7 @@ tools{
         }
          stage('Deploy to server') {
             steps {
-            deploy adapters: [tomcat9(path: '', url: 'http://13.126.94.166:8080/')], contextPath: null, war: '**/*.war'            }
+            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://13.126.94.166:8080/')], contextPath: null, war: '**/*.war'            }
         }
          stage('Docker image build') {
             steps {
@@ -29,16 +29,7 @@ tools{
                 sh  'docker images'
             }
         }
-         stage('Docker registry') {
-            steps {
-
-withDockerRegistry(credentialsId: 'dockerid', url: 'https://hub.docker.com/') {
-   
-}
-
-                
-            }
-        }
+         
         
     }
 }
