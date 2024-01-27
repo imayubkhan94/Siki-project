@@ -6,7 +6,7 @@ tools{
     stages {
         stage('Clone code') {
             steps {
-               git 'https://github.com/SikindharBasha/Siki-project.git'
+               git 'https://github.com/imayubkhan94/Siki-project.git'
             }
         }
         
@@ -17,7 +17,7 @@ tools{
         }
          stage('Deploy to server') {
             steps {
-              deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.7.253.112:8081/')], contextPath: null, war: '**/*.war'
+              deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://13.126.94.166:8080/')], contextPath: null, war: '**/*.war'
             }
         }
          stage('Docker image build') {
