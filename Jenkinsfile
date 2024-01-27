@@ -27,6 +27,7 @@ tools{
                 sh 'pwd'
                 sh 'docker images'
                 sh 'docker tag myimage:1 sikindharbasha/myapplication:shafil2'
+                sh  'docker images'
             }
         }
         
