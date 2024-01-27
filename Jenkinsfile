@@ -30,7 +30,16 @@ tools{
                 sh  'docker images'
             }
         }
-         
+         stage('Docker registry') {
+            steps {
+
+withDockerRegistry(credentialsId: 'dockerid', url: 'https://hub.docker.com/') {
+   
+}
+
+                
+            }
+        }
         
     }
 }
