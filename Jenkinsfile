@@ -1,4 +1,8 @@
 pipeline {
+    envirornment {
+        registry ="ayubkhan1555/Siki-project"
+        registryCredential = 'docker-creds'
+        dockerimage = ''
     agent any
 tools{
     maven 'maven'
