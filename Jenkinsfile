@@ -30,6 +30,17 @@ tools{
                 sh  'docker images'
             }
         }
+          stage('Docker registry ') {
+            steps 
+              {
+             // This step should not normally be used in your script. Consult the inline help for details.
+withDockerRegistry(credentialsId: 'dockerid', toolName: 'docker', url: 'https://hub.docker.com/') {
+    // some block
+    docker push sikindharbasha/myapplication:shafil2
+    echo 'docker pushed successfully'
+}
+            }
+        }
         
     }
 }
