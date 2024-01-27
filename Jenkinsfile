@@ -30,17 +30,7 @@ tools{
                 sh  'docker images'
             }
         }
-          stage('Docker registry ') {
-            steps 
-              {
-             
-              
-                  
-              withDockerRegistry(credentialsId: 'dockerid', toolName: 'docker', url: 'https://hub.docker.com/')
-               docker push sikindharbasha/myapplication:shafil2
-                 
-            }
-        }
+         
         
     }
 }
