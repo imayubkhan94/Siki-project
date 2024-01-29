@@ -12,7 +12,7 @@ pipeline {
                 git 'https://github.com/imayubkhan94/Siki-project.git'
             }
         }
-
+    }
         stage('Build the code') {
             steps {
                 sh 'mvn clean install'
@@ -54,5 +54,5 @@ pipeline {
             }
         }
     }
-}
+
 
