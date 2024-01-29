@@ -1,9 +1,8 @@
 pipeline {
-    envirornment {
-        registry ="ayubkhan1555/Siki-project"
-        registryCredential = 'docker-creds'
-        dockerimage = ''
     agent any
+    environment {
+        DOCKERHUB_CREDENTIALS = 'ayubkhan1555.dockerhub'
+    }
 tools{
     maven 'maven'
 }
@@ -21,7 +20,7 @@ tools{
         }
          stage('Deploy to server') {
             steps {
-            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://13.126.94.166:8080/')], contextPath: null, war: '**/*.war'            }
+            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://65.0.5.33:8080/')], contextPath: null, war: '**/*.war'            }
         }
          stage('Docker image build') {
             steps {
@@ -29,11 +28,31 @@ tools{
                 sh 'ls -l'
                 sh 'pwd'
                 sh 'docker images'
-                sh 'docker tag myimage:1 sikindharbasha/myapplication:shafil2'
+                sh 'docker tag myimage:1 ayubkhan1555/dockerpractise:latest'
                 sh  'docker images'
             }
         }
+         stage('Docker registry') {
+            steps {
+            withDockerRegistry(credentialsId: 'dockerid', url: 'https://index.docker.io/v1/') {
+   
+}
+
+                
+            }
+        }
          
+        stage('Docker push Image') {
+          steps {
+            sh  docker.withRegistry('https://index.docker.io/v1/', 'dockerid') {
+            docker.image("ayubkhan1555/dockerpractise:latest").push()
+    }
+}
+
+    }
+}
+}
+
         
     }
 }
