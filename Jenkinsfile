@@ -20,7 +20,7 @@ tools{
         }
          stage('Deploy to server') {
             steps {
-            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://65.0.5.33:8080/')], contextPath: null, war: '**/*.war'            }
+            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.109.210.126:8080/')], contextPath: null, war: '**/*.war'            }
         }
          stage('Docker image build') {
             steps {
